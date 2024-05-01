@@ -25,7 +25,11 @@ async function fetchCourseId(index){
 async function fetchCourseTitle(index){
     return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
 }
+async function something(){
+    return Array((await fetchApiJson(`/users/${getUserId()}/sections`)).section)
+}
 window.addEventListener('load', function () {
+    console.log(something())
     get_courses()
     get_course_ids()
     console.log(course_ids)
