@@ -17,15 +17,17 @@ async function get_courses(){
 }
 async function get_course_ids(){
     for(i = 0; i < 14; i++){
-        course_ids.push(fetchCourseId(i))
-        course_titles.push(fetchCourseTitle(i))
+        course_ids.push(await fetchCourseId(i))
+        course_titles.push(await fetchCourseTitle(i))
     }
 }
 async function fetchCourseId(index){
-    return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
+    //return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
+    return parseInt(somethinging[index].id)
 }
 async function fetchCourseTitle(index){
-    return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
+    //return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
+    return somethinging[index].course_title
 }
 async function fetchSomething(){
     return Array(fetchApiJson(`/users/${getUserId()}/sections`))
