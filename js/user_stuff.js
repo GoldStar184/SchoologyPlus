@@ -21,10 +21,12 @@ async function get_course_ids(){
     }
 }
 async function fetchCourseId(index){
-    return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
+    //return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
+    return parseInt(somethinging[index].id)
 }
 async function fetchCourseTitle(index){
-    return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
+    //return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
+    return somethinging[index].course_title
 }
 async function something(){
     return await fetchApiJson(`/users/${getUserId()}/sections`).then((data) => {
