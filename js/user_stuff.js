@@ -9,8 +9,7 @@
 var user_courses;
 var course_ids = []
 var course_titles = []
-var your_mother = []
-var balls = [[32,64],[128, 256]]
+var sections = []
 //frame = document.querySelector("iframe[src*=session-tracker]").src.split("?")[1].split("=")[1]
 async function get_courses(){
     user_courses = (await fetchApiJson(`/users/${getUserId()}/sections`)).section
@@ -33,10 +32,8 @@ async function fetchSomething(){
     return Array(fetchApiJson(`/users/${getUserId()}/sections`))
 }
 window.addEventListener('load', function () {
-    your_mother = fetchSomething()
-    console.log(your_mother[0])
-    console.log(balls[0][1])
-    console.log(balls[1][0])
+    sections = fetchSomething()
+    console.log(sections[0])
     get_courses()
     get_course_ids()
     console.log(course_ids)
