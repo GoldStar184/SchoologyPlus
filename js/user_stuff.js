@@ -14,19 +14,18 @@ var sections = []
 async function get_courses(){
     user_courses = (await fetchApiJson(`/users/${getUserId()}/sections`)).section
 }
-async function get_course_ids(){
-    for(i = 0; i < 14; i++){
-        course_ids.push(await fetchCourseId(i))
-        course_titles.push(await fetchCourseTitle(i))
-    }
-}
+
 async function fetchCourseId(index){
     //return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
-    return parseInt(sections[index].id)
+    for(i = 0; i < sections.length; i++){
+        course_ids.push(parseInt(sections[i]).id)
+    }
 }
 async function fetchCourseTitle(index){
     //return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
-    return sections[index].course_title
+    for(i = 0; i < sections.length; i++) {
+        course_titles.push(sections[i].course_title)
+    }
 }
 async function fetchSections(){
     return Array(fetchApiJson(`/users/${getUserId()}/sections`))
