@@ -22,17 +22,17 @@ async function get_course_ids(){
 }
 async function fetchCourseId(index){
     //return parseInt((await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].id)
-    return parseInt(somethinging[index].id)
+    return parseInt(sections[index].id)
 }
 async function fetchCourseTitle(index){
     //return (await fetchApiJson(`/users/${getUserId()}/sections`)).section[index].course_title
-    return somethinging[index].course_title
+    return sections[index].course_title
 }
-async function fetchSomething(){
+async function fetchSections(){
     return Array(fetchApiJson(`/users/${getUserId()}/sections`))
 }
 window.addEventListener('load', function () {
-    sections = fetchSomething()
+    sections = fetchSections()
     console.log(sections[0])
     get_courses()
     get_course_ids()
