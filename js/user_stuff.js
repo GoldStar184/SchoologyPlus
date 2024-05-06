@@ -3,7 +3,7 @@
     while (!window.splusLoaded) {
         await new Promise(resolve => setTimeout(resolve, 10));
     }
-    await loadDependencies("user_stuff", ["preload"]);
+    await loadDependencies("user_stuff", ["all"]);
 })();
 
 var user_courses;
