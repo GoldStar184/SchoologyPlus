@@ -115,10 +115,10 @@ if (homeFeedContainer && Setting.getValue("broadcasts") !== "disabled") {
 
             try {
                 onlineBroadcasts = await (await fetch("https://schoologypl.us/alert.json")).json();
-    
+
                 let readBroadcasts = localStorage.getItem("splus-readBroadcasts");
                 readBroadcasts = readBroadcasts === null ? [] : JSON.parse(readBroadcasts);
-    
+
                 onlineBroadcasts = onlineBroadcasts.filter(b => !readBroadcasts.includes(b.id) && !unreadBroadcasts.map(u => u.id).includes(b.id));
 
                 for (let onlineBroadcast of onlineBroadcasts) {
@@ -194,17 +194,34 @@ function reorderSidebar() {
     try {
         document.getElementById("todo")?.remove();
         let overdueHeading = document.querySelector(`${SIDEBAR_SECTIONS_MAP["Overdue"].selector} h4`);
-        overdueHeading?.replaceWith(createElement("h3", [], {style: {textTransform: "capitalize"}, textContent: overdueHeading.textContent.toLowerCase()}));
+        overdueHeading?.replaceWith(createElement("h3", [], { style: { textTransform: "capitalize" }, textContent: overdueHeading.textContent.toLowerCase() }));
         let upcomingHeading = document.querySelector(`${SIDEBAR_SECTIONS_MAP["Upcoming"].selector} h4`);
-        upcomingHeading?.replaceWith(createElement("h3", [], {style: {textTransform: "capitalize"}, textContent: upcomingHeading.textContent.toLowerCase()}));
+        upcomingHeading?.replaceWith(createElement("h3", [], { style: { textTransform: "capitalize" }, textContent: upcomingHeading.textContent.toLowerCase() }));
     }
-    catch {}
+    catch { }
+}
+
+
+async function createBelowThreshold() {
+    let rightCol = document.getElementById("right-column-inner");
+    let wrapper = createElement("div", ["below-threshold-wrapper"], {}, [createElement("h3", ["h3-med"], { title: "Added by Schoology Plus" },
+        [
+            createSvgLogo("splus-logo-inline"),
+            createElement("span", [], { textContent: "Below Threshold" }),
+            createElement("a", ["quick-right-link", "splus-track-clicks"], { id: "quick-access-splus-settings", textContent: "Customize Sidebar", href: "#splus-settings#setting-input-sidebarSectionOrder" }),
+        ]),
+    createElement("p", [], {
+        // TODO: Actually show the assignments below threshold
+        textContent: "testing 123"
+    })]);
+    rightCol.append(wrapper);
 }
 
 (async function () {
     indicateSubmittedAssignments();
     getRecentlyCompletedDenominators();
     await createQuickAccess();
+    await createBelowThreshold();
     setTimeout(() => {
         reorderSidebar();
     }, 500);
