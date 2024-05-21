@@ -713,6 +713,20 @@ function updateSettings(callback) {
                         element => element.value
                     ).control,
                     new Setting(
+                        "numberOfClasses",
+                        "Number of Classes",
+                        "set the number of classes including crew, homeroom or what ever your school calls it",
+                        null,
+                        "number",
+                        null,
+                        value => {
+                            return value
+                        },
+                        function (event) { this.onload(event.target.value) },
+                        element => element.value,
+
+                    ).control,
+                    new Setting(
                         "sidebarSectionOrder",
                         "Customize Sidebar",
                         "",
@@ -1023,11 +1037,16 @@ function Setting(name, friendlyName, description, defaultValue, type, options, o
 
         switch (type) {
             case "number":
+                let inputnumber = createElement("input", undefined, Object.assign({ type: type }));
+                title.appendChild(inputnumber);
+                if (type === "number") inputnumber.oninput = Setting.onModify;
+                else inputnumber.onclick = Setting.onModify;
+                break;
             case "text":
             case "button":
                 let inputElement = createElement("input", undefined, Object.assign({ type: type }, options));
                 title.appendChild(inputElement);
-                if (type == "button") inputElement.onclick = Setting.onModify;
+                if (type === "button") inputElement.onclick = Setting.onModify;
                 else inputElement.oninput = Setting.onModify;
                 break;
             case "select":

@@ -93,6 +93,7 @@
                 "js/default-themes.js",
                 "js/theme.js",
                 "js/preload.js",
+                "js/custom-processes.js",
                 "js/user_stuff.js"
             ],
             "run_at": "document_start"
