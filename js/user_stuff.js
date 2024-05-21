@@ -17,7 +17,7 @@ async function getSections(){
     sections = ( await (await fetchApiJson(`/users/${getUserId()}/sections`)).section)
     usersData = new data(undefined, getUserId())
 }
-function imToLzyToNameThisRn2() {
+function sectionSorter() {
     for(let i = 0; i < sections.length; i++){
         for(let x = 0; x < sections.length; x++) {
             if(sections[x].section_title.includes(`(${i+1})`)){
@@ -26,7 +26,7 @@ function imToLzyToNameThisRn2() {
         }
     }
 }
-async function imToLazyToNameThisRn(){
+async function createClasses(){
     if(parseInt(Setting.getValue("numberOfClasses")) > sections.length){
         await Setting.setValue("numberOfClasses", `${sections.length}`)
     }
@@ -54,7 +54,7 @@ async function imToLazyToNameThisRn(){
     }
 
 }
-async function imToLazyToNameThisRn3(){
+async function createAssignments(){
     for(let i = 0; i < parseInt(Setting.getValue("numberOfClasses")); i++) {
         let assignments = await (await fetchApiJson(`users/${getUserId()}/grades?section_id=${sectionsSorted[i].id}`)).section[0].period[0].assignment
         //let assignments2 = await (await fetchApiJson(`/sections/${sectionsSorted[i].id}/assignments`)).assignment
@@ -72,8 +72,8 @@ async function imToLazyToNameThisRn3(){
 }
 window.addEventListener('load', async function () {
     await getSections()
-    await imToLzyToNameThisRn2()
-    await imToLazyToNameThisRn()
-    await imToLazyToNameThisRn3()
+    await sectionSorter()
+    await createClasses()
+    await createAssignments()
     console.log(usersData.json)
 });
