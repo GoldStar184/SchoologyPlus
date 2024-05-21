@@ -22,6 +22,10 @@ var defaultCourseIconUrlRegex = /\/sites\/[a-zA-Z0-9_-]+\/themes\/[%a-zA-Z0-9_-]
 
 var SIDEBAR_SECTIONS = [
     {
+        name: "Below Threshold",
+        selector: "#right-column-inner  div.below-threshold-wrapper"
+    },
+    {
         name: "Quick Access",
         selector: "#right-column-inner div.quick-access-wrapper"
     },    
