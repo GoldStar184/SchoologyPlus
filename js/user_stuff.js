@@ -33,22 +33,18 @@ async function createClasses(){
     if(Setting.getValue("numberOfClasses") != null) {
         for(let i = 0; i < parseInt(Setting.getValue("numberOfClasses")); i++){
 
-            usersData.addClass(`id${sectionsSorted[i].id}`, {
+            usersData.addClass({
                 "id": sectionsSorted[i].id,
                 "CourseTitle": sectionsSorted[i].section_title,
-                "assignments": {
-
-                }
+                "assignments": []
             })
         }
     } else {
         for(let i = 0; i < sections.length; i++){
-            usersData.addClass(`id${sectionsSorted[i].id}`, {
+            usersData.addClass({
                 "id": sectionsSorted[i].id,
                 "CourseTitle": sectionsSorted[i].section_title,
-                "assignments": {
-
-                }
+                "assignments": []
             })
         }
     }
@@ -65,7 +61,7 @@ async function createAssignments(){
                 "grade": assignments[x].grade,
                 "maxPoints": assignments[x].max_points
             }
-            usersData.addAssignment(`id${sectionsSorted[i].id}`, `id${assignments[x].assignment_id}`, tempData)
+            usersData.addAssignment(i, `id${assignments[x].assignment_id}`, tempData)
         }
     }
 

@@ -15,11 +15,11 @@ class data {
         this.json = data
         this.json.userId = userId
     }
-    addClass(key, data){
-        this.json.classes[key] = data
+    addClass(data){
+        this.json.classes.push(data)
     }
     addAssignment(Class, assignment, assignmentData) {
-        this.json.classes[Class].assignments[assignment] = assignmentData
+        this.json.classes[Class].assignments.push(assignmentData)
     }
     updateAssignmentsGrade(Class, assignment, newGrade){
         this.json.classes[Class].assignments[assignment].grade = newGrade
