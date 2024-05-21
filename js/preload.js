@@ -716,7 +716,7 @@ function updateSettings(callback) {
                         "numberOfClasses",
                         "Number of Classes",
                         "set the number of classes including crew, homeroom or what ever your school calls it",
-                        null,
+                        7,
                         "number",
                         null,
                         value => {
@@ -862,6 +862,18 @@ function updateSettings(callback) {
                         },
                         function (event) { this.onload(event.target.value) },
                         element => element.value
+                    ).control,
+                    new Setting(
+                        "setThreshold",
+                        "Set Threshold",
+                        "Set the grading threshold for assignments you want shown missing",
+                        70,
+                        "number",
+                        null,
+                        value => value,
+                        undefined,
+                        element => element.value
+
                     ).control,
                 ]),
                 createElement("div", [], {id: "splus-settings-section-utilities"}, [

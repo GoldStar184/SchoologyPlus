@@ -8,9 +8,7 @@
 class data {
     defaultJson = {
         "userId": null,
-        "classes": {
-
-        }
+        "classes": []
     }
 
     constructor(data = this.defaultJson, userId){

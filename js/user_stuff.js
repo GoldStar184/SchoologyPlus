@@ -27,8 +27,8 @@ function sectionSorter() {
     }
 }
 async function createClasses(){
-    if(parseInt(Setting.getValue("numberOfClasses")) > sections.length){
-        await Setting.setValue("numberOfClasses", `${sections.length}`)
+    if(parseInt(Setting.getValue("numberOfClasses")) > sections.length || parseInt(Setting.getValue("numberOfClasses")) <= 0 || parseInt(Setting.getValue("numberOfClasses")) == null){
+        await Setting.setValue("numberOfClasses", `${sections.length-1}`)
     }
     if(Setting.getValue("numberOfClasses") != null) {
         for(let i = 0; i < parseInt(Setting.getValue("numberOfClasses")); i++){
@@ -70,6 +70,7 @@ async function createAssignments(){
     }
 
 }
+
 window.addEventListener('load', async function () {
     await getSections()
     await sectionSorter()
