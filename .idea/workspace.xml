@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed317d1b-6358-440d-83bd-56b3b96fa143" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/js/custom-processes.js" afterDir="false" />
+    <list default="true" id="ed317d1b-6358-440d-83bd-56b3b96fa143" name="Changes" comment="made it so assignments below a threshold show up in a collem">
+      <change afterPath="$PROJECT_DIR$/imgs/assignmentImmage.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/preload.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/preload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/user_stuff.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/user_stuff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "geppp41"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/GoldStar184/SchoologyPlus.git",
+    "accountId": "361647ed-fa9c-4589-819d-14f5bad7c8ed"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,13 +61,19 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\egep4\OneDrive\Documents\GitHub\SchoologyPlus\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\egep4\OneDrive\Documents\GitHub\SchoologyPlus\imgs" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -84,8 +100,57 @@
       <workItem from="1715268273761" duration="7011000" />
       <workItem from="1715711590371" duration="26349000" />
       <workItem from="1715884676083" duration="2180000" />
-      <workItem from="1716232072859" duration="17549000" />
+      <workItem from="1716232072859" duration="38762000" />
     </task>
+    <task id="LOCAL-00001" summary="changed a few functions and added an option to settings">
+      <option name="closed" value="true" />
+      <created>1716257670371</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716257670371</updated>
+    </task>
+    <task id="LOCAL-00002" summary="changed a few functions and added an option to settings">
+      <option name="closed" value="true" />
+      <created>1716257868639</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716257868639</updated>
+    </task>
+    <task id="LOCAL-00003" summary="changed titles of 3 functions in user_stuff.js">
+      <option name="closed" value="true" />
+      <created>1716316652528</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316652528</updated>
+    </task>
+    <task id="LOCAL-00004" summary="i have no clue what i have done">
+      <option name="closed" value="true" />
+      <created>1716320388293</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716320388293</updated>
+    </task>
+    <task id="LOCAL-00005" summary="classes and assignments now stored in an array instead of json array">
+      <option name="closed" value="true" />
+      <created>1716322234922</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716322234922</updated>
+    </task>
+    <task id="LOCAL-00006" summary="made it so assignments below a threshold show up in a collem">
+      <option name="closed" value="true" />
+      <created>1716349651581</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716349651581</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,5 +166,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed a few functions and added an option to settings" />
+    <MESSAGE value="changed titles of 3 functions in user_stuff.js" />
+    <MESSAGE value="i have no clue what i have done" />
+    <MESSAGE value="classes and assignments now stored in an array instead of json array" />
+    <MESSAGE value="made it so assignments below a threshold show up in a collem" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it so assignments below a threshold show up in a collem" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -230,7 +230,7 @@ async function createBelowThreshold() {
                         createElement("span", ["mini-icon", "grade-item-icon", "day-07", "submission-event-icon"], {}, [
                             createElement("span", ["visually-hidden"], {})
                         ]),
-                        createElement("a", ["sExtlink-processed"], {textContent: `${assignment.title}`, href: `/assignment/${assignment.id}`}),
+                        createElement("a", ["sExtlink-processed"], {textContent: `${assignment.title}`, href: `/assignment/${assignment.assignmentId}`}),
                         createElement("br"),
                         createElement("span", [], {textContent: `grade: ${round(assignment.grade / assignment.maxPoints, 1)*100}%`}),
                         createElement("br"),
