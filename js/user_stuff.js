@@ -35,7 +35,7 @@ async function createClasses(){
 
             usersData.addClass({
                 "id": sectionsSorted[i].id,
-                "CourseTitle": sectionsSorted[i].section_title,
+                "CourseTitle": sectionsSorted[i].course_title,
                 "assignments": []
             })
         }
@@ -43,7 +43,7 @@ async function createClasses(){
         for(let i = 0; i < sections.length; i++){
             usersData.addClass({
                 "id": sectionsSorted[i].id,
-                "CourseTitle": sectionsSorted[i].section_title,
+                "CourseTitle": sectionsSorted[i].course_title,
                 "assignments": []
             })
         }
@@ -52,11 +52,18 @@ async function createClasses(){
 }
 async function createAssignments(){
     for(let i = 0; i < parseInt(Setting.getValue("numberOfClasses")); i++) {
-        let assignments = await (await fetchApiJson(`users/${getUserId()}/grades?section_id=${sectionsSorted[i].id}`)).section[0].period[0].assignment
-        //let assignments2 = await (await fetchApiJson(`/sections/${sectionsSorted[i].id}/assignments`)).assignment
+        let assignments = await (await (await fetchApiJson(`users/${getUserId()}/grades?section_id=${sectionsSorted[i].id}`))).section[0].period[0].assignment
+        let assignments2 = await (await fetchApiJson(`/sections/${sectionsSorted[i].id}/assignments`)).assignment
         //await (await fetchApiJson(`users/${getUserId()}/grades?section_id=6874278866`)).section[0].period[0]
         for(let x = 0; x < assignments.length; x++) {
+            let currentAssignment = null;
+            for(let y = 0; y < assignments2.length; y++) {
+                if(assignments[x].assignment_id === assignments2[y].id) {
+                    currentAssignment = assignments2[y].title
+                }
+            }
             let tempData = {
+                "title": currentAssignment,
                 "assignmentId": assignments[x].assignment_id,
                 "grade": assignments[x].grade,
                 "maxPoints": assignments[x].max_points
@@ -72,5 +79,10 @@ window.addEventListener('load', async function () {
     await sectionSorter()
     await createClasses()
     await createAssignments()
+    await createBelowThreshold()
     console.log(usersData.json)
 });
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}

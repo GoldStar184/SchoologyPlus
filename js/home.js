@@ -204,7 +204,15 @@ function reorderSidebar() {
 
 async function createBelowThreshold() {
     let rightCol = document.getElementById("right-column-inner");
-    let wrapper = createElement("div", ["below-threshold-wrapper"], {}, [createElement("h3", ["h3-med"], { title: "Added by Schoology Plus" },
+    try{
+        let e = document.getElementsByClassName("below-threshold-wrapper")
+        for(let i = 0; i < e.length; i++){
+            e[i].remove()
+        }
+    }catch (e){
+        console.log("elements does not exist")
+    }
+    let wrapper = createElement("div", ["below-threshold-wrapper"], {}, [createElement("h3", ["h3-med"], { title: "Added by Schoology Plus", id: "below-threshold" },
         [
             createSvgLogo("splus-logo-inline"),
             createElement("span", [], { textContent: "Below Threshold" }),
@@ -212,8 +220,28 @@ async function createBelowThreshold() {
         ]),
     createElement("p", [], {
         // TODO: Actually show the assignments below threshold
-        textContent: "testing 123"
+        textContent: ""
     })]);
+    if (usersData !== null) {
+        for (const id of usersData.json.classes) {
+            for (const assignment of id.assignments) {
+                if (Setting.getValue("setThreshold") / 100 > assignment["grade"] / assignment["maxPoints"] && assignment['grade'] != null) {
+                    wrapper.appendChild(createElement("span", ["below-threshold-assignment"], {}, [
+                        createElement("span", ["mini-icon", "grade-item-icon", "day-07", "submission-event-icon"], {}, [
+                            createElement("span", ["visually-hidden"], {})
+                        ]),
+                        createElement("a", ["sExtlink-processed"], {textContent: `${assignment.title}`, href: `/assignment/${assignment.id}`}),
+                        createElement("br"),
+                        createElement("span", [], {textContent: `grade: ${round(assignment.grade / assignment.maxPoints, 1)*100}%`}),
+                        createElement("br"),
+                        createElement("a", ["sExtlink-processed"], {textContent: `${id.CourseTitle}`, href: `/course/${id.id}`}),
+                        createElement("br")
+                    ]))
+                    console.log(assignment.assignmentId);
+                }
+            }
+        }
+    }
     rightCol.append(wrapper);
 }
 
@@ -221,6 +249,7 @@ async function createBelowThreshold() {
     indicateSubmittedAssignments();
     getRecentlyCompletedDenominators();
     await createQuickAccess();
+    await createBelowThreshold();
     await createBelowThreshold();
     setTimeout(() => {
         reorderSidebar();
